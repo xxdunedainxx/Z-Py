@@ -1,0 +1,20 @@
+{
+  "log_file" : ".\\log\\dump.log",
+  "log_level" : "ALL",
+  "logging_enabled" : true,
+  "svc_name" : "API - Basic API - Routing Service",
+  "svc_description" : "Contains Routing for Basic API Service",
+  "svc_namespace" : "src.core.service.api.basicTestAPI",
+  "authors" : ["zach.mcfadden"],
+  "last_update" : "5/23/19",
+  "core_route" : "api/v1",
+  "api_specific_resource" : "basic",
+  "supported_methods" : [
+      "get"
+  ],
+
+  "api_specific_routes" : {
+    "get" : "getBasic"
+  }
+
+}

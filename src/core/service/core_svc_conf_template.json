@@ -1,0 +1,12 @@
+// This file Simply contains a template to get started with a service configuration file :)
+
+{
+  "log_file" : ".\\log\\dump.log",
+  "log_level" : "ALL",
+  "logging_enabled" : true,
+  "svc_name" : "some service name",
+  "svc_description" : "description",
+  "svc_namespace" : "dot.walk.to.namespace",
+  "authors" : ["zach.mcfadden"],
+  "last_update" : "11/30/2018"
+}
