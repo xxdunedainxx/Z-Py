@@ -23,29 +23,23 @@ from threading import Thread, Lock
 
 from functools import wraps
 from time import sleep
-mutex = Lock()
 count = 0
-def lockable_resource(method):
-    @wraps(method)
-    def lock_logic(*args, **kwargs):
-        mutex.acquire()
-        try:
-            args.c = 1 + args.c
-
-            print("got it")
-            if args.c % 2 == 0:
-                sleep(3)
-            return method
-        finally:
+def lockable_resource(mutex: Lock, *args, **kwargs):
+    def wrap(method):
+        def lock_logic(*args, **kwargs):
+            mutex.acquire()
+            method(*args, **kwargs)
             mutex.release()
-    return  lock_logic()
+        return lock_logic
+    return wrap
 
-@lockable_resource
-def processData(c):
-    print('Do some stuff')
+@lockable_resource(Lock())
+def processData(c=""):
+    print(f"Do some stuff {c}")
 
-while True:
+processData("test")
+"""while True:
     t = Thread(target=processData, args=(count,))
     t.start()
     t2 = Thread(target=processData, args=(count,))
-    t2.start()
+    t2.start()"""
