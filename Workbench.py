@@ -19,8 +19,9 @@ else:
     #method = globals()[override]()
 
 
-import redis
-r = redis.Redis(host='localhost', port=6379, db=0)
-r.set('foo', 'bar')
-r.get('foo')
+
+from src.core.util.db.memory.Redis import RedisClient
+
+test = RedisClient(host='localhost', port=6379, db=0)
+
 exit(0)
