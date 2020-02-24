@@ -1,5 +1,5 @@
-from ...ServiceConfig import ServiceConfig
-from ...Configuration import InMemConfig, DefaultServiceConfigurations
+from .....conf.ServiceConfig import ServiceConfig
+from .....conf.Configuration import InMemConfig, DefaultServiceConfigurations
 
 class RouteConfig(ServiceConfig):
 

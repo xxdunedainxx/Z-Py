@@ -17,12 +17,17 @@ class Service(IService):
         config.initialize_config()
         self._service_config=config
 
-
+    """
+    Sets up logging for a specific Service
+    """
     def _setup_service_logger(self):
         if self._service_config.logging_enabled:
             self._log=LogFactory(file=self._service_config.log_file,
                                  log_level=self._service_config.log_level)
 
+    """
+    Simple output helper for local debugging 
+    """
     def service_output(self):
         if self._service_config.dev_mode_enabled:
             print(f"Service: {self._service_config.svc_name}")
@@ -33,5 +38,14 @@ class Service(IService):
             print(f"Last updated: {self._service_config.last_update}")
             print(f"{self._service_config.default_output_header}")
 
+    """
+    this method is currently not in use
+    """
     def credential(self):
+        pass
+
+    """
+    
+    """
+    def auto_generate_python_file(self):
         pass

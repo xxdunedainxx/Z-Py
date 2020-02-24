@@ -1,5 +1,7 @@
-from src.core.service.WebFrameworks.WebFrameworkConfig import WebFrameworkConfig
-from src.core.conf.ServiceConfig import InMemConfig
+from ...WebFrameworkConfig import WebFrameworkConfig
+from .....conf.ServiceConfig import InMemConfig
+from .APICoreConfig import APICoreConfig,APIInMemoryConfig
+from .RouteConfig import RouteConfig, RouterInMemoryConfig
 
 class FlaskAppConfig(WebFrameworkConfig):
     DEBUG_DEFAULT=True
@@ -23,6 +25,8 @@ class FlaskAppConfig(WebFrameworkConfig):
         self.angular_client=None
         self.angular_client_directory=None
         self.secret_key_len=FlaskAppConfig.DEFAULT_SECRET_KEY_LEN
+        self.api_configs: [APICoreConfig] = []
+        self.route_configs: [RouteConfig] = []
 
         super().__init__(file=file)
 

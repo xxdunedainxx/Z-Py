@@ -1,6 +1,6 @@
-from ...ServiceConfig import ServiceConfig
-from ....conf.API.routes.RouteConfig import RouteConfig
-from ...Configuration import InMemConfig, DefaultServiceConfigurations
+from .....conf.ServiceConfig import ServiceConfig
+from .RouteConfig import RouteConfig
+from .....conf.Configuration import InMemConfig, DefaultServiceConfigurations
 class APICoreConfig(ServiceConfig):
 
     def __init__(self,
